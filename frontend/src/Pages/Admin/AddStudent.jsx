@@ -1,5 +1,4 @@
-import { AppBar, Box, Button, CardContent, Chip, CssBaseline, Divider, Grid, List, ListItem, Stack, Toolbar, Typography } from "@mui/material";
-import MainTopbar from "../../Components/MainTopbar";
+import { AppBar, Box, Button, CardContent, Chip, CssBaseline, Divider, Grid, List, ListItem, Stack, TextField, Toolbar, Typography } from "@mui/material";
 import AdminTopbar from "../../Components/AdminTopbar";
 
 export default function AddStudent() {
@@ -30,70 +29,35 @@ export default function AddStudent() {
                     <Toolbar/>
                 <Stack direction="row" spacing={4}>
                 <Chip label="Name" sx={{ fontSize: "1.0rem", width: "25%" }} />
-                <Chip
-                    sx={{ backgroundColor: '#C5ECF1', fontSize: "1.0rem", width: "50%" }}
-                    label={
-                    <Stack direction="row" spacing={1} >
-                        HETTIARACHCHI B.H.S.N.
-                    </Stack>
-                    }
-                />
+                <TextField label="" id="standard-size-small"  size="small" sx={{ fontSize: "1.0rem", width: "50%" }} />
                 </Stack>
                 <Stack direction = {'row'} flexGrow = {1}sx={{ height:10}}></Stack>
 
 
                 <Stack direction="row" spacing={4}>
                 <Chip label="Registration No." sx={{ fontSize: "1.0rem", width: "25%" }} />
-                <Chip
-                    sx={{ backgroundColor: '#C5ECF1', fontSize: "1.0rem", width: "50%" }}
-                    label={
-                    <Stack direction="row" spacing={1} >
-                        EG/2019/3604
-                    </Stack>
-                    }
-                />
+                <TextField label="" id="standard-size-small"  size="small" sx={{ fontSize: "1.0rem", width: "50%" }} />
                 </Stack>
                 <Stack direction = {'row'} flexGrow = {1}sx={{ height:10}}></Stack>
 
 
                 <Stack direction="row" spacing={4}>
                 <Chip label="Student Mail" sx={{ fontSize: "1.0rem", width: "25%" }} />
-                <Chip
-                    sx={{ backgroundColor: '#C5ECF1', fontSize: "1.0rem", width: "50%" }}
-                    label={
-                    <Stack direction="row" spacing={1} >
-                        HETTIARACHCHI B.H.S.N.
-                    </Stack>
-                    }
-                />
+                <TextField label="" id="standard-size-small"  size="small" sx={{ fontSize: "1.0rem", width: "50%" }} />
                 </Stack>
                 <Stack direction = {'row'} flexGrow = {1}sx={{ height:10}}></Stack>
 
 
                 <Stack direction="row" spacing={4}>
                 <Chip label="User Name" sx={{ fontSize: "1.0rem", width: "25%" }} />
-                <Chip
-                    sx={{ backgroundColor: '#C5ECF1', fontSize: "1.0rem", width:"50%" }}
-                    label={
-                    <Stack direction="row" spacing={1} >
-                        student21
-                    </Stack>
-                    }
-                />
+                <TextField label="" id="standard-size-small"  size="small" sx={{ fontSize: "1.0rem", width: "50%" }} />
                 </Stack>
                 <Stack direction = {'row'} flexGrow = {1}sx={{ height:10}}></Stack>
 
 
                 <Stack direction="row" spacing={4}>
-                <Chip label="Password." sx={{ fontSize: "1.0rem", width: "25%" }} />
-                <Chip
-                    sx={{ backgroundColor: '#C5ECF1', fontSize: "1.0rem", width: "50%" }}
-                    label={
-                    <Stack direction="row" spacing={1} sx={{ alignItems: "center", textAlign: "left" }}>
-                        eng@123
-                    </Stack>
-                    }
-                />
+                <Chip label="Password" sx={{ fontSize: "1.0rem", width: "25%" }} />
+                <TextField label="" id="standard-size-small"  size="small" sx={{ fontSize: "1.0rem", width: "50%" }} />
                 </Stack>
                 <Stack direction = {'row'} flexGrow = {1}sx={{ height:30}}></Stack>
 
