@@ -8,27 +8,46 @@ import LoginTopbar from "../Components/LoginTopbar";
 export default function LoginPage () {
     const [data, setData] = useState({ email: "", password: "" });
 	const [error, setError] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
     const [User, setUser] = useState([]);
 
     function getUser() {
       axios
-      .get("http://localhost:8080/api/users/getOne/642694558d8adb45b11abf32")
+      .get(`http://localhost:8080/api/users/getOne/${data.email}`)
       .then((res) => {
         setUser(res.data);
         localStorage.setItem('User', JSON.stringify(res.data));
-        //localStorage.setItem('lastName', user.lastName);
-        //localStorage.setItem('email', user.email);
       })
       .catch((err) => {
         alert(err.message);
       });
     
+
+
+
+      // axios
+      // .get(`http://localhost:8080/api/users/getOne/642694558d8adb45b11abf32`)
+      // .then((res) => {
+      //   setUser(res.data);
+      //   localStorage.setItem('User', JSON.stringify(res.data));
+      // })
+      // .catch((err) => {
+      //   alert(err.message);
+      // });
+    
       }
+
+
+  
 
 	const handleChange = ({ currentTarget: input }) => {
         
 		setData({ ...data, [input.name]: input.value });
 	};
+
+
+
     const handleSubmit = async (e) => {
 		e.preventDefault();
 		try {
@@ -79,6 +98,7 @@ export default function LoginPage () {
                       type="email"
                       label="Email"
                       name="email"
+                      //onChange={(e) => setEmail(e.target.value)}
                       onChange={handleChange}
                       value={data.email}
                       required
@@ -88,6 +108,7 @@ export default function LoginPage () {
                       type="password"
                       label="Password"
                       name="password"
+                     // onChange={(e) => setPassword(e.target.value)}
                       onChange={handleChange}
                       value={data.password}
                       required

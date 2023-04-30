@@ -1,10 +1,9 @@
 import { AppBar, Avatar, Box, Button, Chip,  Divider,  Fade,  InputBase,  Menu, MenuItem, Toolbar, Typography } from "@mui/material";
 import { Stack } from "@mui/system";
-import SearchIcon from '@mui/icons-material/Search';
+
 import { styled, alpha } from '@mui/material/styles';
 import React from 'react';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
-import { useState, useEffect } from "react";
 
 const useStyles = styled((theme) => ({
     root: {
@@ -15,31 +14,7 @@ const useStyles = styled((theme) => ({
   }));
 
 
-const Search = styled('div')(({ theme }) => ({
-    position: 'relative',
-    borderRadius: theme.shape.borderRadius,
-    backgroundColor: alpha(theme.palette.common.white, 0.15),
-    '&:hover': {
-      backgroundColor: alpha(theme.palette.common.white, 0.25),
-    },
-    marginLeft: 0,
-    width: '100%',
-    [theme.breakpoints.up('sm')]: {
-      marginLeft: theme.spacing(1),
-      width: 'auto',
-    },
-  }));
-  
-  const SearchIconWrapper = styled('div')(({ theme }) => ({
-    padding: theme.spacing(0, 2),
-    height: '100%',
-    position: 'absolute',
-    pointerEvents: 'none',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    
-  }));
+
   
   const StyledInputBase = styled(InputBase)(({ theme }) => ({
     color: 'inherit',
@@ -58,19 +33,7 @@ const Search = styled('div')(({ theme }) => ({
     },
   }));
 
-export default function MainTopbar() {
-  const [user, setUser] = useState(null);
-
-  useEffect(() => {
-    const storedUser = localStorage.getItem('User');
-
-    if (storedUser) {
-      const parsedUser = JSON.parse(storedUser);
-
-      setUser(parsedUser.User);
-    }
-    
-  }, []);
+export default function AdminTopbar() {
 
     const classes = useStyles();
 
@@ -85,10 +48,6 @@ export default function MainTopbar() {
     setAnchorEl(null);
   };
 
-  if (user == null) {
-    return <div>Loading</div>
-  }
-
     return (
       <Box sx={{ flexGrow: 1 }}>
         <AppBar position="static" sx={{ backgroundColor:'#198897'}}>
@@ -100,15 +59,6 @@ export default function MainTopbar() {
                 </Typography>
 
                 <Stack direction="row" spacing={2}>
-                <Search flexGrow = {10}>
-                  <SearchIconWrapper>
-                    <SearchIcon />
-                  </SearchIconWrapper>
-                  <StyledInputBase
-                    placeholder="Search…"
-                    inputProps={{ 'aria-label': 'search' }}
-                  />
-                </Search>
                 
                     <div>
                     <Button  onClick={handleClick}>
@@ -117,12 +67,11 @@ export default function MainTopbar() {
                         avatar={<Avatar alt="Natacha" src="/static/images/avatar/1.jpg" />}
                         label={
                             <Stack direction="row" spacing={1} alignItems="center">
-                            {user.fullName}
+                            Admin
                             <ArrowDropDownIcon />
                             </Stack>
                         }
-                        />
-                    
+                        />         
                     </Button>
                     <Menu
                         className={classes.root}
@@ -133,9 +82,9 @@ export default function MainTopbar() {
                         onClose={handleClose}
                         TransitionComponent={Fade}
                     >
-                        <a href="/saccountpage"><MenuItem onClick={handleClose}>Profile</MenuItem></a>
+                        <MenuItem onClick={handleClose}>Profile</MenuItem>
                         <Divider />
-                        <a href="/AddStudent"><MenuItem onClick={handleClose}>Settings</MenuItem></a>
+                        <MenuItem onClick={handleClose}>Settings</MenuItem>
                         <Divider />
                         <MenuItem onClick={handleClose}>Logout</MenuItem>
                     </Menu>
@@ -149,4 +98,3 @@ export default function MainTopbar() {
       </Box>
     );
   }
-

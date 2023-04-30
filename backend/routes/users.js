@@ -24,10 +24,23 @@ router.post("/", async (req, res) => {
 	}
 });
 
-router.get("/getOne/:id", async (req, res) => {
-	const filter = { _id: req.params.id };
+// router.get("/getOne/:id", async (req, res) => {
+// 	const filter = { _id: req.params.id };
   
-	const data = await User.findById(filter,{password:0});
+// 	const data = await User.findById(filter,{password:0});
+  
+// 	if (data) {
+// 	  return res.status(200).send({ success: true, User: data });
+// 	} else {
+// 	  return res.status(400).send({ success: false, msg: "Data not found" });
+// 	}
+//   }); 
+  
+
+  router.get("/getOne/:id", async (req, res) => {
+	const filter = { email: req.params.id };
+  
+	const data = await User.findOne(filter,{password:0});
   
 	if (data) {
 	  return res.status(200).send({ success: true, User: data });
@@ -35,7 +48,7 @@ router.get("/getOne/:id", async (req, res) => {
 	  return res.status(400).send({ success: false, msg: "Data not found" });
 	}
   }); 
-
+  
 
 
 

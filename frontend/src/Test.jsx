@@ -8,6 +8,9 @@ import HomeStudent from './Pages/HomeStudent';
 import LoginPage from './Authentication/LoginPage';
 import HomePage from './Authentication/HomePage';
 import SAccountPage from './Pages/SAccountPage';
+import AddStudent from './Pages/Admin/AddStudent';
+
+
 
 export default function Test() {
   return (
@@ -28,6 +31,9 @@ export default function Test() {
             </Route>
 
             <Route path="/saccountpage" element={<SAccountPage/>} >
+            </Route>
+
+            <Route path="/AddStudent" element={<AddStudent/>} >
             </Route>
 
 

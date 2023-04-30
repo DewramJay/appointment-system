@@ -5,6 +5,18 @@ import { Grid } from '@mui/material';
 import { useState, useEffect } from "react";
 
 export default function HomeStudent () {
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    const storedUser = localStorage.getItem('User');
+
+    if (storedUser) {
+      const parsedUser = JSON.parse(storedUser);
+
+      setUser(parsedUser.User);
+    }
+    
+  }, []);
   
 
     return (
@@ -31,6 +43,8 @@ export default function HomeStudent () {
                     <Chip label="Notifications" sx={{ fontSize: "1.2rem" }} />
                 </Box>
                 </Grid>
+                <button>student</button>
+                <button>lecturer</button>
             </Grid>
             </Box>
         </Box>
